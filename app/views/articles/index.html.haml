@@ -1,1 +1,10 @@
+%h1
 トップページ
+
+
+= link_to '新規投稿', new_article_path
+
+
+記事一覧
+- @articles.each do |article|
+  = article.title
