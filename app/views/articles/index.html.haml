@@ -1,0 +1,9 @@
+%h1トップページ
+
+
+= link_to '新規投稿', new_article_path
+
+
+記事一覧
+- @articles.each do |article|
+  = link_to article.title, article_path(article.id)

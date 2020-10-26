@@ -1,0 +1,6 @@
+記事編集ページ
+
+= form_with model: @article, local: true do |f|
+  = f.text_field :title, placeholder: :タイトル
+  = f.text_area :content, placeholder: :本文
+  = f.submit '投稿する'
