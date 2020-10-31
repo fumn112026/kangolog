@@ -4,7 +4,8 @@
 = @article.created_at
 = simple_format @article.content
 
-= link_to '編集する', edit_article_path(@article.id)
-= link_to '削除する', article_path(@article.id), method: :delete
+- if user_signed_in? && current_user.id == @article.user_id
+  = link_to '編集する', edit_article_path(@article.id)
+  = link_to '削除する', article_path(@article.id), method: :delete
 
 = link_to 'トップページに戻る', root_path
