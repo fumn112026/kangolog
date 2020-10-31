@@ -1,5 +1,6 @@
-%h1トップページ
+%h1 トップページ
 
+%h2 menu
 - if user_signed_in?
   = current_user.nickname
   = link_to 'マイページ', user_path(current_user.id)
@@ -9,7 +10,10 @@
   = link_to 'ログイン', new_user_session_path
   = link_to '新規登録', new_user_registration_path
 
-記事一覧
-- @articles.each do |article|
-  = link_to article.title, article_path(article.id)
-  = article.user.nickname
+%h2 Articles
+%ul
+  - @articles.each do |article|
+    %li
+      = link_to article.title, article_path(article.id)
+      %span by
+      = link_to article.user.nickname, user_path(article.user)
