@@ -14,6 +14,7 @@
     %p
       = link_to comment.user.nickname, user_path(comment.user_id)
       = comment.text
+      = link_to '削除する', "/articles/#{@article.id}/comments/#{comment.id}", method: :delete
 
 - if current_user
   = form_with(model: [@article, @comment], local: true) do |f|
