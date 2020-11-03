@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @articles = Article.includes(:user) 
@@ -14,13 +16,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
@@ -35,9 +35,21 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @articles = Article.search(params[:keyword])
+  end
+  
   private
   def article_params
     params.require(:article).permit(:title, :content).merge(user_id: current_user.id)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end
