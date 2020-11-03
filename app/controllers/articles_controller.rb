@@ -35,6 +35,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @articles = Article.search(params[:keyword])
+  end
+  
   private
   def article_params
     params.require(:article).permit(:title, :content).merge(user_id: current_user.id)
