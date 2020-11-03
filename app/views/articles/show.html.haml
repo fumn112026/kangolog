@@ -1,4 +1,4 @@
-記事詳細ページ
+%h1 記事詳細ページ
 
 = @article.title
 = @article.created_at
@@ -7,5 +7,22 @@
 - if user_signed_in? && current_user.id == @article.user_id
   = link_to '編集する', edit_article_path(@article.id)
   = link_to '削除する', article_path(@article.id), method: :delete
+
+%h2 コメント一覧
+- if @comments.present?
+  - @comments.each do |comment|
+    %p
+      = link_to comment.user.nickname, user_path(comment.user_id)
+      = comment.text
+      - if user_signed_in? && current_user.id == comment.user.id 
+        = link_to '編集する', edit_article_comment_path(@article, comment)
+        = link_to '削除する', article_comment_path(@article, comment), method: :delete
+- else @comments
+  %p コメントはまだありません。
+
+- if current_user
+  = form_with(model: [@article, @comment], local: true) do |f|
+    = f.text_area :text, placeholder: "コメントする", rows: "10"
+    = f.submit "SEND"
 
 = link_to 'トップページに戻る', root_path
