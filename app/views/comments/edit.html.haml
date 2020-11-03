@@ -3,3 +3,5 @@
 = form_with(model: [@article, @comment], local: true) do |f|
   = f.text_area :text, placeholder: :コメントする, rows: "10"
   = f.submit 'SEND'
+
+= link_to '記事ページに戻る', article_path(@article)
