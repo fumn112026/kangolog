@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   has_many :comments
 
   def self.search(search)
-    return Artcle.all unless search
+    return Article.all unless search
     Article.where('title LIKE(?)', "%#{search}%")
   end
 end
