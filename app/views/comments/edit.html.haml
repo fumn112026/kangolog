@@ -1,0 +1,5 @@
+%h1 コメント編集ページ
+
+= form_with(model: [@article, @comment], local: true) do |f|
+  = f.text_area :text, placeholder: :コメントする, rows: "10"
+  = f.submit 'SEND'
