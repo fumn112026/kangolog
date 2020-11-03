@@ -16,9 +16,5 @@
   = f.submit '検索'
 
 %h2 Articles
-%ul
-  - @articles.each do |article|
-    %li
-      = link_to article.title, article_path(article.id)
-      %span by
-      = link_to article.user.nickname, user_path(article.user)
+= render @articles
+
