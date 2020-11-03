@@ -15,8 +15,8 @@
       = link_to comment.user.nickname, user_path(comment.user_id)
       = comment.text
       - if user_signed_in? && current_user.id == comment.user.id 
-        = link_to '編集する', "/articles/#{@article.id}/comments/#{comment.id}/edit"
-        = link_to '削除する', "/articles/#{@article.id}/comments/#{comment.id}", method: :delete
+        = link_to '編集する', edit_article_comment_path(@article, comment)
+        = link_to '削除する', article_comment_path(@article, comment), method: :delete
 - else @comments
   %p コメントはまだありません。
 

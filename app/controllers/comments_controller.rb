@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create(comment_params)
-    redirect_to "/articles/#{comment.article.id}"
+    redirect_to article_path(comment.article)
   end
 
   def edit
@@ -13,13 +13,13 @@ class CommentsController < ApplicationController
   def update
     comment = Comment.find(params[:id])
     comment.update(comment_params)
-    redirect_to "/articles/#{comment.article.id}"
+    redirect_to article_path(comment.article)
   end
 
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
-    redirect_to "/articles/#{comment.article.id}"
+    redirect_to article_path(comment.article)
   end
 
   private
