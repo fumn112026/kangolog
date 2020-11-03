@@ -9,13 +9,16 @@
   = link_to '削除する', article_path(@article.id), method: :delete
 
 %h2 コメント一覧
-- if @comments
+- if @comments.present?
   - @comments.each do |comment|
     %p
       = link_to comment.user.nickname, user_path(comment.user_id)
       = comment.text
-      = link_to '編集する', "/articles/#{@article.id}/comments/#{comment.id}/edit"
-      = link_to '削除する', "/articles/#{@article.id}/comments/#{comment.id}", method: :delete
+      - if user_signed_in? && current_user.id == comment.user.id 
+        = link_to '編集する', "/articles/#{@article.id}/comments/#{comment.id}/edit"
+        = link_to '削除する', "/articles/#{@article.id}/comments/#{comment.id}", method: :delete
+- else @comments
+  %p コメントはまだありません。
 
 - if current_user
   = form_with(model: [@article, @comment], local: true) do |f|
