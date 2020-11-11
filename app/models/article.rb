@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :images
+  accept_nested_attributes_for :images, allow_destroy: true
 
   def self.search(search)
     return Article.all unless search
