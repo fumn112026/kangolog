@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @image = Image.new
+    @article.images.new
   end
 
   def create
