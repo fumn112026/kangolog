@@ -2,6 +2,8 @@
 
 = @article.title
 = @article.created_at
+- if @article.images[0].present?
+  = image_tag @article.images[0].src.to_s
 = simple_format @article.content
 
 - if user_signed_in? && current_user.id == @article.user_id
