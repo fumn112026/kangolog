@@ -1,1 +1,29 @@
+// index.html.haml
+.index {
+  padding: 80px;
+  background-color: #f3f3f2;
+  &__head {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 0 50px;
+  }
+}
 
+// _article.html.haml
+.article {
+  background-color: #fff;
+  height: 80px;
+  margin: 10px;
+  padding: 20px 20px 10px 20px;
+  &__title {
+    font-size: 14px;
+    margin: 20px;
+  }
+  &__under {
+    margin: 20px;
+    font-size: 12px;
+    .post__time {
+      color: #A6A6A4;
+    }
+  }
+}

@@ -1,3 +1,6 @@
 = render 'header'
-%h2 Articles
-= render @articles
+
+.index
+  %h2.index__head 新着記事
+  .index__inner
+    = render @articles
