@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit]
+  before_action :set_article, only: [:show, :edit, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
@@ -31,8 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    article = Article.find(params[:id])
-    article.destroy
+    @article.destroy
     redirect_to root_path
   end
 
