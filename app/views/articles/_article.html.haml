@@ -1,5 +1,9 @@
 %ul
   %li
     = link_to article.title, article_path(article.id)
+    %br
     %span by
     = link_to article.user.nickname, user_path(article.user)
+    %span
+    %time(datatime="#{article.created_at}")
+      = time_ago_in_words(article.created_at)
