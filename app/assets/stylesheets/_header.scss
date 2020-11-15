@@ -11,8 +11,14 @@
   &__search {
     font-size: 12px;
     margin: auto 0;
-    .search_window {
+    &__window {
       width: 300px;
+      padding-left: 5px;
+      border: 1px solid #A6A6A6;
+      border-radius: 3px;
+    }
+    &__submit {
+      display: none;
     }
   }
   &__menu {
