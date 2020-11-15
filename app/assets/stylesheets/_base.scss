@@ -1,0 +1,13 @@
+* {
+  text-decoration: none;
+}
+
+a {
+  color: #000;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  }
