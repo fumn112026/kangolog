@@ -1,7 +1,12 @@
-%h1 コメント編集ページ
+= render 'articles/header'
 
-= form_with(model: [@article, @comment], local: true) do |f|
-  = f.text_area :text, placeholder: :コメントする, rows: "10"
-  = f.submit 'SEND'
+.index
+  .article__show__comment__wrapper__form.form.clearfix
+    = form_with(model: [@article, @comment], local: true) do |f|
+      = f.text_area :text, placeholder: "テキストを入力", rows: "4", class: "comment__form__textarea form"
+      = f.submit "SEND", class: "comment__form__submit form"
 
-= link_to '記事ページに戻る', article_path(@article)
+  = link_to 'back', article_path(@article), class: "back-btn"
+
+= render 'articles/footer'
+
