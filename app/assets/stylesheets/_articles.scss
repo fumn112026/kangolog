@@ -9,6 +9,8 @@
   }
 }
 
+
+
 // _article.html.haml
 .article {
   background-color: #fff;
@@ -27,6 +29,8 @@
     }
   }
 }
+
+
 
 // show.html.haml
 .article__show {
@@ -116,3 +120,21 @@
     }
   }
 }
+
+
+
+// search.html/haml
+.index__search__head {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+.index__inner {
+  .article__search {
+    min-height: 80vh;
+    &__noarticle {
+      text-align: center;
+      font-size: 15px;
+    }
+  } 
+}
+
