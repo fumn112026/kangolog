@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @articles = Article.includes(:user).order(id: "DESC")
+    @articles = Article.includes(:user).order(id: "DESC").page(params[:page]).per(10)
   end
 
   def new
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.search(params[:keyword])
+    @articles = Article.search(params[:keyword]).order(id: "DESC").page(params[:page]).per(10)
   end
   
   private

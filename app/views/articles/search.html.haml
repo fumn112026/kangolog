@@ -10,5 +10,6 @@
       - else
         %p.article__search__noarticle
           = "「#{params[:keyword]}」に一致する記事は見つかりませんでした。"
-
+  = paginate(@articles)
+  
 = render 'footer'
