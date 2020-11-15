@@ -8,7 +8,6 @@
       .article__show__top__menu
         = link_to 'edit', edit_article_path(@article.id), class: "article__edit"
         = link_to 'delete', article_path(@article.id), method: :delete, class: "article__delete"
-    -# %br/
   .article__show__title
     = @article.title   
   .article__show__content
@@ -16,22 +15,30 @@
       = image_tag @article.images[0].src.to_s
     = simple_format @article.content
 
-
-  %h2 コメント一覧
-  - if @comments.present?
-    - @comments.each do |comment|
-      %p
-        = link_to comment.user.nickname, user_path(comment.user_id)
-        = comment.text
-        - if user_signed_in? && current_user.id == comment.user.id 
-          = link_to '編集する', edit_article_comment_path(@article, comment)
-          = link_to '削除する', article_comment_path(@article, comment), method: :delete
-  - else @comments
-    %p コメントはまだありません。
-
-  - if current_user
-    = form_with(model: [@article, @comment], local: true) do |f|
-      = f.text_area :text, placeholder: "コメントする", rows: "10"
-      = f.submit "SEND"
+  .article__show__comment__wrapper
+    %h2.article__show__comment__wrapper__title Comments
+    - if @comments.present?
+      - @comments.each do |comment|
+        .article__show__comment__wrapper__table.clearfix
+          .article__show__comment__wrapper__table__top
+            %p.article__show__comment__wrapper__table__username
+              %span @
+              = link_to comment.user.nickname, user_path(comment.user_id)
+            %p.article__show__comment__wrapper__table__updatedat
+              =comment.updated_at.strftime("%Y-%m-%d")
+          %p.article__show__comment__wrapper__table__text
+            = comment.text
+          - if user_signed_in? && current_user.id == comment.user.id 
+            .article__show__comment__wrapper__table__menu
+              = link_to 'edit', edit_article_comment_path(@article, comment)
+              = link_to 'delete', article_comment_path(@article, comment), method: :delete
+          - else @comments
+            %p.nocomment__content この記事にコメントはありません。
+    - if current_user
+      %p.article__show__comment__wrapper__formhead コメントを投稿
+      .article__show__comment__wrapper__form.clearfix
+        = form_with(model: [@article, @comment], local: true) do |f|
+          = f.text_area :text, placeholder: "テキストを入力", rows: "4", class: "comment__form__textarea"
+          = f.submit "SEND", class: "comment__form__submit"
 
 = render 'footer'
