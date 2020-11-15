@@ -27,3 +27,38 @@
     }
   }
 }
+
+// show.html.haml
+.article__show {
+  margin: 0 50px;
+  padding: 68px 0 215px;
+  color: #0A0A0A;
+  font-size: 13px;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    &__date {
+      margin-bottom: 60px;
+    }
+    &__menu {
+      .article__edit {
+        padding: 10px;
+        color: #0A0A0A;
+      }
+      .article__delete {
+        padding: 10px;
+        color: #0A0A0A;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 60px;
+    color: #212121;
+    font-size: 22px;
+  }
+  &__content {
+    margin-bottom: 100px;
+    color: #212121;
+    font-size: 13px;
+  }
+}
