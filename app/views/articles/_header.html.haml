@@ -4,7 +4,7 @@
 
   .header__search
     = form_with(url: search_articles_path, local: true, method: :get) do |f|
-      = f.text_field :keyword, placeholder: 'search', class: "header__search__window"
+      = f.text_field :keyword, placeholder: 'search', class: "header__search__window form"
       = f.submit '検索', class: "header__search__submit"
 
   %ul.header__menu

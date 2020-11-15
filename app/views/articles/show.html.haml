@@ -36,9 +36,9 @@
             %p.nocomment__content この記事にコメントはありません。
     - if current_user
       %p.article__show__comment__wrapper__formhead コメントを投稿
-      .article__show__comment__wrapper__form.clearfix
+      .article__show__comment__wrapper__form.form.clearfix
         = form_with(model: [@article, @comment], local: true) do |f|
-          = f.text_area :text, placeholder: "テキストを入力", rows: "4", class: "comment__form__textarea"
-          = f.submit "SEND", class: "comment__form__submit"
+          = f.text_area :text, placeholder: "テキストを入力", rows: "4", class: "comment__form__textarea form"
+          = f.submit "SEND", class: "comment__form__submit form"
 
 = render 'footer'
