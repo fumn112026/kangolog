@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.search(params[:keyword])
+    @articles = Article.search(params[:keyword]).order(id: "DESC").page(params[:page]).per(10)
   end
   
   private
