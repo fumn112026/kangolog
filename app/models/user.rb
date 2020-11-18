@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
+
+  def alreadey_liked?(article)
+    self.likes.exists?(article_id: article.id)
+  end
 end
