@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'articles#index'
+  resources :users, only: :show
+  
   resources :articles, except: :index do
     resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :likes, only: [:create, :destroy]
     collection do
       get 'search'
     end
   end
-
-  resources :users, only: :show
+  
+  root 'articles#index'
 
 end

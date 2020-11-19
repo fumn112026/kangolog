@@ -8,3 +8,5 @@
       %span.post__time
         %time(datatime="#{article.created_at}")
           = time_ago_in_words(article.created_at)
+      = article.liked_users.count
+      %span goods

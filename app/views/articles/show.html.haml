@@ -15,6 +15,18 @@
       = image_tag @article.images[0].src.to_s
     = simple_format @article.content
 
+  .article__show__info
+    %p イイね！数
+    = @article.likes.count
+    - if current_user
+      - if current_user.already_liked?(@article)
+        = button_to 'イイね！を取り消す', article_like_path(@article), method: :delete
+      - else
+        = button_to 'イイね！', article_likes_path(@article)
+    %p イイね！したユーザー
+    - @article.liked_users.each do |user|
+      = user.nickname
+
   .article__show__comment__wrapper
     %h2.article__show__comment__wrapper__title Comments
     - if @comments.present?
