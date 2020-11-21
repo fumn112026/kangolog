@@ -1,6 +1,10 @@
+= render 'articles/header'
+
 = "#{@nickname}さんのマイページ"
 
-- @articles.each do |article|
-  = link_to article.title, article_path(article)
+%ul
+  - @articles.each do |article|
+    %li
+      = link_to article.title, article_path(article)
 
-= link_to 'トップページに戻る', root_path
+= render 'articles/footer'
