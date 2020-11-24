@@ -1,10 +1,8 @@
 = render 'articles/header'
 
-= "#{@nickname}さんのマイページ"
-
-%ul
-  - @articles.each do |article|
-    %li
-      = link_to article.title, article_path(article)
+.index
+  .index__inner 
+    = render @articles
+  = paginate(@articles)
 
 = render 'articles/footer'
