@@ -1,7 +1,7 @@
-.index
-  %h2.index__search__head
+.content
+  %h2.search__head
     = "#{@articles.count}件の検索結果"
-  .index__inner
+  .search__inner
     .article__search
       - if @articles.present?
         = render @articles
