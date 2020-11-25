@@ -1,4 +1,5 @@
 .content
-  .index__inner 
+  %h2.index__head 投稿記事一覧
+  .index__inner
     = render @articles
   = paginate(@articles)
