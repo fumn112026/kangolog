@@ -1,5 +1,3 @@
-= render 'header'
-
 .index
   = form_with model: @article, local: true do |f|
     = f.text_field :title, placeholder: "タイトル", class: "new-posts__wrapper__form__title form"
@@ -7,4 +5,3 @@
     = f.text_area :content, placeholder: "テキストを入力", class: "new-posts__wrapper__form__content form"
     = f.submit 'kangologに投稿', class: "new-posts__wrapper__form__submit form"
 
-= render 'footer'

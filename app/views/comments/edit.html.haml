@@ -1,5 +1,3 @@
-= render 'articles/header'
-
 .index
   .article__show__comment__wrapper__form.form.clearfix
     = form_with(model: [@article, @comment], local: true) do |f|
@@ -7,6 +5,4 @@
       = f.submit "SEND", class: "comment__form__submit form"
 
   = link_to 'back', article_path(@article), class: "back-btn"
-
-= render 'articles/footer'
 

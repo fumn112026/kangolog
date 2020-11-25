@@ -1,5 +1,3 @@
-= render 'header'
-
 .index
   %h2.index__search__head
     = "#{@articles.count}件の検索結果"
@@ -11,5 +9,4 @@
         %p.article__search__noarticle
           = "「#{params[:keyword]}」に一致する記事は見つかりませんでした。"
   = paginate(@articles)
-  
-= render 'footer'
+
