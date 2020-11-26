@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  mount_uploader :image, ImageUploader
   
   validates :nickname, presence: true
   validates :email, uniqueness: true
@@ -16,3 +18,4 @@ class User < ApplicationRecord
     self.likes.exists?(article_id: article.id)
   end
 end
+
