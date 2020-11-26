@@ -1,5 +1,3 @@
-= render 'header'
-
 .new-posts__wrapper
   .new-posts__wrapper__form
     = form_with model: @article, local: true do |f|
@@ -12,4 +10,3 @@
       %br/
       = f.submit 'kangologに投稿', class: "new-posts__wrapper__form__submit form"
 
-= render 'footer'

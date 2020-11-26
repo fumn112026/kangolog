@@ -1,11 +1,16 @@
 // index.html.haml
-.index {
-  padding: 80px;
+.content {
+  padding: 40px;
   background-color: #f3f3f2;
-  &__head {
+  min-height: 60vh;
+  .index__head {
     text-align: center;
     font-size: 20px;
     margin: 0 0 50px;
+  }
+  .index__inner {
+    width: 60%;
+    margin: 0 auto;
   }
   .pagination {
     float: right;
@@ -156,11 +161,11 @@
 
 
 // search.html.haml
-.index__search__head {
+.search__head {
   font-size: 14px;
   margin-bottom: 30px;
 }
-.index__inner {
+.search__inner {
   .article__search {
     min-height: 80vh;
     &__noarticle {

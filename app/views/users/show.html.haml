@@ -1,6 +1,5 @@
-= "#{@nickname}さんのマイページ"
-
-- @articles.each do |article|
-  = link_to article.title, article_path(article)
-
-= link_to 'トップページに戻る', root_path
+.content
+  %h2.index__head 投稿記事一覧
+  .index__inner
+    = render @articles
+  = paginate(@articles)
