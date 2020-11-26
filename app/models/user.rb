@@ -18,4 +18,3 @@ class User < ApplicationRecord
     self.likes.exists?(article_id: article.id)
   end
 end
-
