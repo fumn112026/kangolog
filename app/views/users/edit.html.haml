@@ -1,0 +1,8 @@
+.content
+  = form_for(@user) do |f|
+    - if @user.image?
+      = image_tag @user.image.url
+    - else
+      = image_tag "/assets/default.png", :size => '300x300'
+    = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
+    = f.submit '更新する', class: 'btn btn-primary'
