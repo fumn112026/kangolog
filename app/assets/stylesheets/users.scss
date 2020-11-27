@@ -1,11 +1,17 @@
-// マイページ
-
-.mypage {
-  &__container {
-    ul {
-      li {
-        
-      }
+// 編集ページ
+  .user__edit__main {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 50vh;
+    padding: 32px;
+    &__title {
+      text-align: center;
+      color: #555;
+      font-size: 24px;
+      padding: 20px;
+    }
+    &__image {
+      margin: 30px 0;
     }
   }
-}

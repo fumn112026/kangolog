@@ -1,8 +1,19 @@
 .content
-  = form_for(@user) do |f|
-    - if @user.image?
-      = image_tag @user.image.url
-    - else
-      = image_tag "/assets/default.png", :size => '300x300'
-    = f.file_field :image, accept: 'image/jpeg,image/gif,image/png'
-    = f.submit '更新する', class: 'btn btn-primary'
+  .user__edit__main
+    %h1.user__edit__main__title
+      = "#{@user.nickname}のアカウント"
+    = form_for(@user) do |f|
+      .form-block
+        = f.label :nickname, class: "form__label"
+        = f.text_field :nickname, class: "text__form"
+      .form-block
+        = f.label :image, "アイコン", class: "form__label"
+        .user__edit__main__image
+          - if @user.image?
+            = image_tag @user.image.url
+          - else
+            = image_tag "/assets/default.png"
+        = f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "image__form"
+        = f.label :image, "アイコンを変更", class: "image__form__label" 
+      .form-block
+        = f.submit '更新する', class: 'btn submit-btn'
