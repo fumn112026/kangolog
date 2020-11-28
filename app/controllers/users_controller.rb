@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit]
+  before_action :move_to_root
 
   def show
-    user = User.find(params[:id])
-    @nickname = user.nickname
-    @articles = user.articles.order(id: "DESC").page(params[:page]).per(10)
+    @nickname = @user.nickname
+    @articles = @user.articles.order(id: "DESC").page(params[:page]).per(10)
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
@@ -20,4 +20,13 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :image)
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def move_to_root
+    redirect_to root_path unless user_signed_in?
+  end
+
 end
