@@ -1,5 +1,23 @@
-.content
-  %h2.index__head 投稿記事一覧
-  .index__inner
-    = render @articles
-  = paginate(@articles)
+.mypage
+  .user__info
+    .user__info__top
+      .user__info__top__icon
+        - if @user.image?
+          = image_tag @user.image.url
+        - else
+          = image_tag "/assets/default.png"
+      .user__info__top__nickname
+        = @user.nickname
+    .user__info__bottom
+      .user__info__bottom__article-count
+        = @user.articles.count
+        %p 投稿
+      .user__info__bottom__like_count
+        = @user.likes.count
+        %p いいね
+    .user__info__edit-link.submit-btn
+      = link_to 'プロフィールを編集する', edit_user_path(@user)
+  .mypage__content
+    .mypage__content__inner
+      = render @articles
+    = paginate(@articles)

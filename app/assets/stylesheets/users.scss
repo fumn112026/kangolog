@@ -1,11 +1,63 @@
 // マイページ
-
 .mypage {
-  &__container {
-    ul {
-      li {
-        
+  background-color: #f3f3f2;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  .user__info {
+    text-align: center;
+    background-color: #fff;
+    margin: 10px 10px 10px 0;
+    padding: 44px 24px 24px 24px;
+    width: 400px;
+    img {
+      margin-bottom: 16px;
+      border-radius: 50%;
+      width: 50%;
+    }
+    &__top {
+      color: #A6A6A4;
+      margin-bottom: 16px;
+    }
+    &__bottom {
+      display: flex;
+      justify-content: space-around;
+      font-size: 20px;
+      p {
+        color: #A6A6A4;
+        font-size: 12px;
       }
+    }
+    &__edit-link {
+      line-height: 40px;
+      width: 100%;
+      a {
+        color: #fff;
+      }
+    }
+  }
+  &__content {
+    width: 100%;
+  }
+}
+
+// 編集ページ
+.user__edit__main {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 50vh;
+  padding: 32px;
+  &__title {
+    text-align: center;
+    color: #555;
+    font-size: 24px;
+    padding: 20px;
+  }
+  &__image {
+    margin: 30px 0;
+    img {
+      width: 25%;
     }
   }
 }
