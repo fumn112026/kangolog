@@ -35,7 +35,8 @@
   .article__user__icon {
     border-radius: 50%;
     float: left;
-    width: 10%;
+    width: 40px;
+    height: 40px;
   }
   &__inner__right {
     float: left;
@@ -51,10 +52,10 @@
       }
     }
   }
-  }
+}
 
 
-  
+
 // show.html.haml
 .article__show {
   margin: 0 50px;

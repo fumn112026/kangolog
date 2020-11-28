@@ -7,7 +7,7 @@
   .user__info {
     text-align: center;
     background-color: #fff;
-    margin: 10px 10px 0 0;
+    margin: 10px 10px 10px 0;
     padding: 44px 24px 24px 24px;
     width: 400px;
     img {
@@ -42,22 +42,22 @@
 }
 
 // 編集ページ
-  .user__edit__main {
-    width: 70%;
-    margin: 0 auto;
-    background-color: #fff;
-    min-height: 50vh;
-    padding: 32px;
-    &__title {
-      text-align: center;
-      color: #555;
-      font-size: 24px;
-      padding: 20px;
-    }
-    &__image {
-      margin: 30px 0;
-      img {
-        width: 25%;
-      }
+.user__edit__main {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 50vh;
+  padding: 32px;
+  &__title {
+    text-align: center;
+    color: #555;
+    font-size: 24px;
+    padding: 20px;
+  }
+  &__image {
+    margin: 30px 0;
+    img {
+      width: 25%;
     }
   }
+}
