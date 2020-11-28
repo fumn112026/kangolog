@@ -1,12 +1,14 @@
 %ul.article
   %li
-    = link_to article.title, article_path(article.id), class: "article__title"
-    %br
-    .article__under
-      %span by
-      = link_to article.user.nickname, user_path(article.user), class: "article__user"
-      %span.post__time
-        %time(datatime="#{article.created_at}")
-          = time_ago_in_words(article.created_at)
-      = article.liked_users.count
-      %span goods
+    = image_tag article.user.image.url, class: "article__user__icon clearfix"
+    .article__inner__right
+      = link_to article.title, article_path(article.id), class: "article__inner__right__title"
+      %br
+      .article__inner__right__under
+        %span by
+        = link_to article.user.nickname, user_path(article.user), class: "article__user"
+        %span.post__time
+          %time(datatime="#{article.created_at}")
+            = time_ago_in_words(article.created_at)
+        = article.liked_users.count
+        %span goods

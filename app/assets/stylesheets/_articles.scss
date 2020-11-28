@@ -31,19 +31,28 @@
   background-color: #fff;
   height: 80px;
   margin: 10px;
-  padding: 20px 20px 10px 20px;
-  &__title {
-    font-size: 14px;
-    margin: 20px;
+  padding: 25px;
+  .article__user__icon {
+    border-radius: 50%;
+    background-color: red;
+    float: left;
+    width: 10%;
   }
-  &__under {
-    margin: 20px;
-    font-size: 12px;
-    .post__time {
-      color: #A6A6A4;
+  &__inner__right {
+    float: left;
+    margin: 0 20px;
+    &__title {
+      font-size: 14px;
+    }
+    &__under {
+      margin-top: 12px;
+      font-size: 12px;
+      .post__time {
+        color: #A6A6A4;
+      }
     }
   }
-}
+  }
 
 
 
