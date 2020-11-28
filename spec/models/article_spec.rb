@@ -4,11 +4,7 @@ describe Article do
   describe '#create' do
 
     it "titleとcontent、user_id存在すれば登録できること" do
-      user = create(:user)
-      article = user.articles.build(
-        title: "aaa",
-        content: "aaa",
-      )
+      article = build(:article)
       expect(article).to be_valid
     end
 
