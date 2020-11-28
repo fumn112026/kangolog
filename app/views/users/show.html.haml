@@ -2,10 +2,10 @@
   .user__info
     .user__info__top
       .user__info__top__icon
-        - if @user.image
+        - if @user.image?
           = image_tag @user.image.url
         - else
-          - image_tag "/assets/default.png"
+          = image_tag "/assets/default.png"
       .user__info__top__nickname
         = @user.nickname
     .user__info__bottom
