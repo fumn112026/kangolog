@@ -15,8 +15,9 @@
       .user__info__bottom__like_count
         = @user.likes.count
         %p いいね
-    .user__info__edit-link.submit-btn
-      = link_to 'プロフィールを編集する', edit_user_path(@user)
+    - if user_signed_in? && current_user.id == @user.id
+      .user__info__edit-link.submit-btn
+        = link_to 'プロフィールを編集する', edit_user_path(@user)
   .mypage__content
     .mypage__content__inner
       = render @articles
