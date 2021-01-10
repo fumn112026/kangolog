@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'kangolog'
-  config.asset_host = 'https://statick.kangolog.work'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/kangolog'
 end
