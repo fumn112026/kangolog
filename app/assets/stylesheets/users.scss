@@ -44,21 +44,31 @@
 
 // 編集ページ
 .user__edit__main {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   background-color: #fff;
   min-height: 50vh;
   padding: 32px;
+  text-align: center;
   &__title {
     text-align: center;
     color: #555;
     font-size: 24px;
     padding: 20px;
   }
+  .form-block {
+    .user__edit__form__text-field {
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
   &__image {
     margin: 30px 0;
     img {
-      width: 25%;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
     }
   }
 }
