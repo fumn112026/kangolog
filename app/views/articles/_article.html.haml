@@ -1,9 +1,9 @@
 %ul.article
   %li
     - if article.user.image?
-      = image_tag asset_path(article.user.image.url), class: "article__user__icon clearfix"
+      = image_tag article.user.image.url, class: "article__user__icon clearfix"
     - else
-      = image_tag asset_path("/assets/default.png", alt: "default_icon"), class: "article__user__icon clearfix"
+      = image_tag asset_path("default.png", alt: "default_icon"), class: "article__user__icon clearfix"
     .article__inner__right
       = link_to article.title, article_path(article.id), class: "article__inner__right__title"
       %br
