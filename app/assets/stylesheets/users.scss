@@ -1,19 +1,21 @@
 // マイページ
 .mypage {
   background-color: #f3f3f2;
-  padding: 20px;
+  padding: 40px 80px;
   display: flex;
   justify-content: space-around;
   .user__info {
     text-align: center;
     background-color: #fff;
     margin: 10px 10px 10px 0;
-    padding: 44px 24px 24px 24px;
+    padding: 44px 24px 74px 24px;
     width: 400px;
+    height: 100%;
     img {
       margin-bottom: 16px;
       border-radius: 50%;
-      width: 50%;
+      width: 200px;
+      height: 200px;
     }
     &__top {
       color: #A6A6A4;
@@ -39,26 +41,47 @@
   &__content {
     width: 100%;
     min-height: 580px;
+    .mypage__article {
+        background-color: #fff;
+        width: 65%;
+        height: 80px;
+        margin: 10px;
+        padding: 25px 25px 15px 25px;
+    }
+  }
+  .pagenation {
+    margin-left: 10px;
   }
 }
 
+
 // 編集ページ
 .user__edit__main {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   background-color: #fff;
   min-height: 50vh;
   padding: 32px;
+  text-align: center;
   &__title {
     text-align: center;
     color: #555;
     font-size: 24px;
     padding: 20px;
   }
+  .form-block {
+    .user__edit__form__text-field {
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
   &__image {
     margin: 30px 0;
     img {
-      width: 25%;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
     }
   }
 }

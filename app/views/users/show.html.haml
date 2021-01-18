@@ -5,7 +5,7 @@
         - if @user.image?
           = image_tag @user.image.url
         - else
-          = image_tag "/assets/default.png"
+          = image_tag asset_path("default.png")
       .user__info__top__nickname
         = @user.nickname
     .user__info__bottom
@@ -19,6 +19,19 @@
       .user__info__edit-link.submit-btn
         = link_to 'プロフィールを編集する', edit_user_path(@user)
   .mypage__content
-    .mypage__content__inner
-      = render @articles
-    = paginate(@articles)
+    %ul
+      - @articles.each do |article|
+        %li.mypage__article
+          .article__inner__right
+            = link_to article.title, article_path(article.id), class: "article__inner__right__title"
+            %br
+            .article__inner__right__under
+              %span by
+              = link_to article.user.nickname, user_path(article.user), class: "article__user"
+              %span.post__time
+                %time(datatime="#{article.created_at}")
+                  = time_ago_in_words(article.created_at)
+              = article.liked_users.count
+              %span goods
+    .pagenation
+      = paginate(@articles)

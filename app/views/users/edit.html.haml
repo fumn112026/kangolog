@@ -4,10 +4,10 @@
       = "#{@user.nickname}のアカウント"
     = form_for(@user) do |f|
       .form-block
-        = f.label :nickname, class: "form__label"
-        = f.text_field :nickname, class: "text__form"
+        = f.label :nickname, class: "form__label user__edit__form__label"
+        = f.text_field :nickname, class: "text__form user__edit__form__text-field"
       .form-block
-        = f.label :image, "アイコン", class: "form__label"
+        = f.label :image, "アイコン", class: "form__label user__edit__form__label"
         .user__edit__main__image
           - if @user.image?
             = image_tag @user.image.url
