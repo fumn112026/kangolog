@@ -1,18 +1,17 @@
 .content
-  %h2 Log in
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "current-password"
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit "Log in"
-  = render "devise/shared/links"
+  .sign-in__form
+    %p.sign-in__form__logo kangolog
+    .sign-in__form__block
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "sign-in__form__block__email text__form"
+        .field
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "sign-in__form__block__password text__form"
+        .actions
+          = f.submit class: "sign-in__form__block__submit-btn submit-btn", value: "Log in"
+        - if devise_mapping.rememberable?
+          .sign-in__form__block__remember-check.field
+            = f.check_box :remember_me
+            = f.label :"情報を記憶する"
+    .sign-in__form__links
+      = render "devise/shared/links"

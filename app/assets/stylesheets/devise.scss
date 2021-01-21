@@ -1,0 +1,49 @@
+// sessions/new.html.haml
+
+.sign-in__form {
+  background-color: #fff;
+  width: 314px;
+  height: 460px;
+  margin: 0 auto;
+  padding: 62px 99px 48px;
+  &__logo {
+    text-align: center;
+    font-size: 30px;
+  }
+  &__block {
+    margin-top: 30px;
+    &__email {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+    }
+    &__password {
+      width: 80%;
+      margin: 10px auto;
+      text-align: center;
+    }
+    .actions {
+      text-align: center;
+    }
+    &__submit-btn {
+      width: 85%;
+    }
+    &__remember-check {
+      margin-top: 20px;
+      text-align: center;
+      color: #737373;
+    }
+  }
+  .sign-in__form__links {
+    margin-top: 60px;
+    text-align: center;
+    .devise__link__registration {
+      color: #737373;
+      display: block;
+    }
+    .devise__link__forgot-password {
+      display: block;
+      color: #737373;
+    } 
+  }
+}
