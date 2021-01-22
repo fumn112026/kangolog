@@ -89,6 +89,11 @@
     color: #212121;
     font-size: 13px;
   }
+  &__info {
+    .fa-heartbeat {
+      color: red;
+    }
+  }
   &__comment__wrapper {
     color: #333;
     width: 80%;
