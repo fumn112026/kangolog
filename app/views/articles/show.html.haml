@@ -1,6 +1,9 @@
 .article__show
   .article__show__top
     .article__show__top__date
+      - if @article.tag
+        - @article.tag.each do |tag|
+          = tag.name 
       = @article.created_at.strftime("%b %d %Y")
     - if user_signed_in? && current_user.id == @article.user_id
       .article__show__top__menu
