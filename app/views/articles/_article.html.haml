@@ -1,4 +1,5 @@
 %li.article
+  = link_to "", article_path(article.id), class: "article__link"
   - if article.user.image?
     = image_tag article.user.image.url, class: "article__user__icon clearfix"
   - else
