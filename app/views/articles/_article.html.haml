@@ -13,7 +13,7 @@
           %ul.tag__list
             - article.tag.each do |tag|
               %li.tag__name
-                = tag.name
+                = link_to tag.name, tag_article_path(tag.id)
       .article__inner__right__under
         %span by
         = link_to article.user.nickname, user_path(article.user), class: "article__user"
