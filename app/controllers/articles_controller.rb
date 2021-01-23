@@ -30,12 +30,18 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @tag_list = @article.tag.pluck(:name).join(",")
   end
 
   def update
     article = Article.find(params[:id])
-    article.update(article_params)
-    redirect_to article_path(article.id)
+    tag_list = params[:article][:tag_ids].split(',')
+    if article.update(article_params)
+      article.save_tags(tag_list)
+      redirect_to article_path(article.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
