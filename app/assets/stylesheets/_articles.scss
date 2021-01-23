@@ -102,12 +102,15 @@
       margin-bottom: 10px;
     }
   }
+  &__info {
+    margin-bottom: 50px;
+  }
   &__comment__wrapper {
     color: #333;
     width: 80%;
     &__title {
       font-size: 18px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     &__table {
       border-bottom: 1px solid #DDD;
@@ -129,23 +132,21 @@
       margin-bottom: 32px;
     }
     &__formhead {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     &__form {
       border: none;
-      padding-top: 30px;
+      margin-top: 5px;
       .comment__form__textarea {
-        margin: 0 auto;
         display: block;
-        width: 100%;
+        width: 50%;
         background-color: #FAFAFA;
         padding: 10px;
         overflow: auto;
       }
       .comment__form__submit {
-        margin: 8px;
+        margin-top: 8px;
         padding: 5px 13px;
-        margin-left: 1025px;
         color: #0A0A0A;
       }
     }
