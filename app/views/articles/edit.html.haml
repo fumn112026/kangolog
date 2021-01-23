@@ -2,6 +2,7 @@
   = form_with model: @article, local: true do |f|
     = f.text_field :title, placeholder: "タイトル", class: "new-posts__wrapper__form__title form"
     %br/
+    = f.text_field :tag_ids, value: @tag_list, placeholder: "タグを入力(複数つけるには、' , 'で区切ってください)"
     = f.text_area :content, placeholder: "テキストを入力", class: "new-posts__wrapper__form__content form"
     = f.submit 'kangologに投稿', class: "new-posts__wrapper__form__submit form"
 
