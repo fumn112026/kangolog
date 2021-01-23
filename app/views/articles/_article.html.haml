@@ -7,6 +7,13 @@
     .article__inner__right
       = link_to article.title, article_path(article.id), class: "article__inner__right__title"
       %br
+      .article__inner__right__tag
+        - if article.tag.presence
+          = icon("fas", "tags", class: "fas fa-tags")
+          %ul.tag__list
+            - article.tag.each do |tag|
+              %li.tag__name
+                = tag.name
       .article__inner__right__under
         %span by
         = link_to article.user.nickname, user_path(article.user), class: "article__user"
