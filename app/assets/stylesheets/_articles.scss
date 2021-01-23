@@ -80,14 +80,26 @@
     }
   }
   &__title {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     color: #212121;
     font-size: 22px;
+  }
+  &__tag {
+    margin-bottom: 10px;
+    .tag__name {
+      background-color: #eee;
+      display: inline-block;
+      color: #666;
+      padding: 2px 8px;
+    }
   }
   &__content {
     margin-bottom: 100px;
     color: #212121;
     font-size: 13px;
+    .article__image {
+      margin-bottom: 10px;
+    }
   }
   &__comment__wrapper {
     color: #333;
