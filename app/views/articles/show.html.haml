@@ -10,7 +10,7 @@
     - if @article.tag
       - @article.tag.each do |tag|
         .tag__name
-          = tag.name
+          = link_to tag.name, tag_article_path(tag.id)
   .article__show__title
     = @article.title
   .article__show__content

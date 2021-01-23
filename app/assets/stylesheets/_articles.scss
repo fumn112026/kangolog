@@ -104,8 +104,10 @@
     .tag__name {
       background-color: #eee;
       display: inline-block;
-      color: #666;
       padding: 2px 8px;
+      a {
+        color: #666;
+      }
     }
   }
   &__title {
