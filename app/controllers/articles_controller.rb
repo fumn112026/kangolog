@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :destroy]
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :move_to_index, except: [:index, :show, :search, :tag]
 
   def index
     @articles = Article.includes(:user).order(created_at: "DESC").page(params[:page]).per(10)
@@ -51,6 +51,11 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = Article.search(params[:keyword]).order(id: "DESC").page(params[:page]).per(10)
+  end
+
+  def tag
+    @tag = Tag.find(params[:id])
+    @articles = @tag.articles.order(created_at: "DESC").page(params[:page]).per(10)
   end
   
   private
