@@ -1,8 +1,8 @@
 .new-posts__wrapper
   .new-posts__wrapper__form
     = form_with model: @article, local: true do |f|
-      = f.text_field :tag_ids, class: "form-control", id:'tag_ids', placeholder: "タグをつける。複数つけには、','で区切ってください、"
       = f.text_field :title, placeholder: "タイトル", class: "new-posts__wrapper__form__title form"
+      = f.text_field :tag_ids, class: "new-posts__wrapper__form__tag form", placeholder: "タグを入力(複数つけるには、' , 'で区切ってください)"
       %br/
       = f.fields_for :images do |i|
         = i.file_field :src, class: "new-posts__wrapper__form__image"

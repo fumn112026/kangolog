@@ -58,15 +58,16 @@
 
 // show.html.haml
 .article__show {
-  margin: 0 50px;
+  margin: 50px;
   padding: 68px 0 215px;
   color: #0A0A0A;
   font-size: 13px;
+  border-top: 1px solid #666;
   &__top {
     display: flex;
     justify-content: space-between;
     &__date {
-      margin-bottom: 60px;
+      margin-bottom: 5px;
     }
     &__menu {
       .article__edit {
@@ -79,19 +80,19 @@
       }
     }
   }
-  &__title {
-    margin-bottom: 40px;
-    color: #212121;
-    font-size: 22px;
-  }
   &__tag {
-    margin-bottom: 10px;
+    margin-bottom: 60px;
     .tag__name {
       background-color: #eee;
       display: inline-block;
       color: #666;
       padding: 2px 8px;
     }
+  }
+  &__title {
+    margin-bottom: 40px;
+    color: #212121;
+    font-size: 22px;
   }
   &__content {
     margin-bottom: 100px;
@@ -131,11 +132,12 @@
       margin-bottom: 10px;
     }
     &__form {
-      padding: 30px 8px 0 8px;
+      border: none;
+      padding-top: 30px;
       .comment__form__textarea {
         margin: 0 auto;
         display: block;
-        width: 96%;
+        width: 100%;
         background-color: #FAFAFA;
         padding: 10px;
         overflow: auto;
@@ -143,7 +145,7 @@
       .comment__form__submit {
         margin: 8px;
         padding: 5px 13px;
-        float: right;
+        margin-left: 1025px;
         color: #0A0A0A;
       }
     }
@@ -160,8 +162,13 @@
     font-size: 15px;
     &__title {
       width: 100%;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       padding: 5px;
+    }
+    &__tag {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 3px 5px;
     }
     &__image {
       margin-bottom: 15px;

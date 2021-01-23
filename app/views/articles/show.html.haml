@@ -6,13 +6,13 @@
       .article__show__top__menu
         = link_to 'edit', edit_article_path(@article.id), class: "article__edit"
         = link_to 'delete', article_path(@article.id), method: :delete, class: "article__delete"
-  .article__show__title
-    = @article.title
   .article__show__tag
     - if @article.tag
       - @article.tag.each do |tag|
         .tag__name
           = tag.name
+  .article__show__title
+    = @article.title
   .article__show__content
     - if @article.images[0].present?
       .article__image
