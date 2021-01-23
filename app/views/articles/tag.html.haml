@@ -2,9 +2,9 @@
   %h2.index__head
     = "#{@tag.name}の記事一覧"
   .index__inner
-    - @articles.each do |article|
-      %ul.article
-        %li
+    %ul
+      - @articles.each do |article|
+        %li.article
           - if article.user.image?
             = image_tag article.user.image.url, class: "article__user__icon clearfix"
           - else
