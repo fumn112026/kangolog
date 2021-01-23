@@ -15,7 +15,15 @@ class Article < ApplicationRecord
   end
   
   def save_tags(savearticle_tags)
-    savearticle_tags.each do |new_name|
+    current_tags = self.tag.pluck(:name) unless self.tag.nil?
+    old_tags = current_tags - savearticle_tags
+    new_tags = savearticle_tags - current_tags
+
+    old_tags.each do |old_name|
+      self.tag.delete Tag.find_by(name: old_tags)
+    end
+
+    new_tags.each do |new_name|
       article_tag = Tag.find_or_create_by(name: new_name)
       self.tag << article_tag
     end
