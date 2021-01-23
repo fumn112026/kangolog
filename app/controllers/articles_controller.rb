@@ -12,8 +12,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Article.create(article_params)
-    redirect_to root_path
+    @article = Article.create(article_params)
+    tag_list = params[:article][:tag_ids].split(',')
+    if @article.save
+      @article.save_tags(tag_list)
+      flash[:succsess] = '投稿しました!'
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def show
