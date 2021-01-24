@@ -1,12 +1,13 @@
 .content
-  %h2.search__head
+  %h2.index__head
     = "#{@articles.count}件の検索結果"
-  .search__inner
-    .article__search
+    .index__inner
       - if @articles.present?
-        = render @articles
+        %ul
+          = render @articles
       - else
         %p.article__search__noarticle
           = "「#{params[:keyword]}」に一致する記事は見つかりませんでした。"
-  = paginate(@articles)
+    = paginate(@articles)
+
 

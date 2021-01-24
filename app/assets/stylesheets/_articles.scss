@@ -14,9 +14,8 @@
     margin: 0 auto;
   }
   .pagination {
-    float: right;
-    margin-top: 20px;
-    padding-right: 20px;
+    text-align: center;
+    margin-top: 25px;
     a {
       color:#A6A6A6;
       padding-left: 5px;
@@ -58,6 +57,7 @@
     margin: 0 20px;
     &__title {
       font-size: 16px;
+      float: left;
     }
     &__tag {
       margin-top: 8px;
@@ -255,16 +255,13 @@
 
 
 // search.html.haml
-.search__head {
-  font-size: 14px;
-  margin-bottom: 30px;
-}
-.search__inner {
+.index__inner {
   .article__search {
     min-height: 80vh;
     &__noarticle {
       text-align: center;
       font-size: 15px;
+      margin-top: 20px;
     }
   } 
 }
