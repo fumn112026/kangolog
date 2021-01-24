@@ -13,5 +13,6 @@
           .sign-in__form__block__remember-check.field
             = f.check_box :remember_me
             = f.label :"情報を記憶する"
+    = link_to 'Log in for TEST', users_guest_sign_in_path, method: :post
     .sign-in__form__links
       = render "devise/shared/links"
