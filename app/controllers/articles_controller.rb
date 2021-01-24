@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :destroy]
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     @articles = Article.includes(:user).order(created_at: "DESC").page(params[:page]).per(10)
@@ -47,10 +47,6 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
   end
 
 end

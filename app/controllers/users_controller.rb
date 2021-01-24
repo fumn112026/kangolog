@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
-  before_action :move_to_root
+  before_action :authenticate_user!, except: :show
 
   def show
     @nickname = @user.nickname
@@ -23,10 +23,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def move_to_root
-    redirect_to root_path unless user_signed_in?
   end
 
 end
