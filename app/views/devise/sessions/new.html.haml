@@ -9,10 +9,5 @@
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "sign-in__form__block__password text__form"
         .actions
           = f.submit class: "sign-in__form__block__submit-btn submit-btn", value: "Log in"
-        - if devise_mapping.rememberable?
-          .sign-in__form__block__remember-check.field
-            = f.check_box :remember_me
-            = f.label :"情報を記憶する"
-    = link_to 'Log in for TEST', users_guest_sign_in_path, method: :post
-    .sign-in__form__links
-      = render "devise/shared/links"
+    .sign-in__form__guest-login.text__form 
+      = link_to 'ゲストログイン', users_guest_sign_in_path, class: "guest-login__link", method: :post
