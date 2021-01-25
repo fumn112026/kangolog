@@ -11,6 +11,7 @@
     padding: 44px 24px 74px 24px;
     width: 400px;
     height: 100%;
+    max-height: 391px;
     img {
       margin-bottom: 16px;
       border-radius: 50%;
@@ -36,6 +37,11 @@
       a {
         color: #fff;
       }
+    }
+    .guest__alert {
+      color: #FF570D;
+      font-size: 14px;
+      margin-top: 10px;
     }
   }
   &__content {

@@ -18,6 +18,9 @@
     - if user_signed_in? && current_user.id == @user.id
       .user__info__edit-link.submit-btn
         = link_to 'プロフィールを編集する', edit_user_path(@user)
+      - if alert
+        .guest__alert
+          = alert
   .mypage__content
     %ul
       - @articles.each do |article|
