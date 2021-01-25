@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search, :tag]
 
   def index
     @articles = Article.includes(:user).order(created_at: "DESC").page(params[:page]).per(10)
@@ -12,8 +12,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Article.create(article_params)
-    redirect_to root_path
+    @article = Article.create(article_params)
+    tag_list = params[:article][:tag_ids].split(',')
+    if @article.save
+      @article.save_tags(tag_list)
+      flash[:succsess] = '投稿しました!'
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -23,12 +30,18 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @tag_list = @article.tag.pluck(:name).join(",")
   end
 
   def update
     article = Article.find(params[:id])
-    article.update(article_params)
-    redirect_to article_path(article.id)
+    tag_list = params[:article][:tag_ids].split(',')
+    if article.update(article_params)
+      article.save_tags(tag_list)
+      redirect_to article_path(article.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -38,6 +51,11 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = Article.search(params[:keyword]).order(id: "DESC").page(params[:page]).per(10)
+  end
+
+  def tag
+    @tag = Tag.find(params[:id])
+    @articles = @tag.articles.order(created_at: "DESC").page(params[:page]).per(10)
   end
   
   private
