@@ -1,26 +1,17 @@
 .content
-  %h2 Sign up
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .field
-      = f.label :nickname
-      %br/
-      = f.text_field :nickname, autofocus: true
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
-      %br/
-      = f.password_field :password, autocomplete: "new-password"
-    .field
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
-    .actions
-      = f.submit "Sign up"
-  = render "devise/shared/links"
+  .sign-in__form
+    %p.sign-in__form__logo kangolog
+    .sign-in__form__block
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        %br/
+        = f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "sign-in__form__block__email text__form"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "sign-in__form__block__email text__form"
+        %br/
+        = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)", class: "sign-in__form__block__password text__form"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード", class: "sign-in__form__block__password text__form"
+        %br/
+        .actions
+          = f.submit class: "sign-in__form__block__submit-btn submit-btn", value: "登録する"

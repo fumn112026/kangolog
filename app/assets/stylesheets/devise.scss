@@ -3,9 +3,8 @@
 .sign-in__form {
   background-color: #fff;
   width: 314px;
-  height: 460px;
   margin: 0 auto;
-  padding: 62px 99px 28px;
+  padding: 62px 99px;
   &__logo {
     text-align: center;
     font-size: 30px;
@@ -19,7 +18,7 @@
     }
     &__password {
       width: 80%;
-      margin: 10px auto;
+      margin:auto;
       text-align: center;
     }
     .actions {
@@ -33,7 +32,7 @@
   &__guest-login {
     width: 80%;
     text-align: center;
-    margin: 80px auto 0;
+    margin: 80px auto 20px;
     line-height: 26px;
     border-top: 2px solid #333;
     border-bottom: 2px solid #333;
@@ -49,5 +48,15 @@
       height: 100%;
       padding: 10px;
     }
+  }
+}
+
+
+// registrations/new.html.haml
+.action {
+  .sign-in__form__block__submit-btn {
+    font-size: 12px;
+    height: 26px;
+    width: 87%;
   }
 }
