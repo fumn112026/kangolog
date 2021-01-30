@@ -1,6 +1,1 @@
-.content
-  %h2.index__head
-    = "#{@tag.name}の記事一覧"
-  .index__inner
-    %ul
-      = render partial: 'article', collection: @articles, as: "article"
+= render partial: 'article', locals: { '@articles': @articles, content_title: "#{@tag.name}の記事一覧"}
