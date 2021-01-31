@@ -27,9 +27,7 @@ class UsersController < ApplicationController
   end
 
   def check_guest
-    if @user.email == "guest@example.com"
-      redirect_to user_path(@user), alert: 'ゲストユーザーは編集できません'
-    end
+    redirect_to user_path(@user), alert: 'ゲストユーザーは編集できません' if @user.email == "guest@example.com"
   end
 
 end
