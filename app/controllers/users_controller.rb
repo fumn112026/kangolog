@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :check_guest]
   before_action :authenticate_user!, except: :show
-  before_action :check_guest, only: [:edit, :update]
+  before_action :check_guest, only: [:edit]
 
   def show
     @nickname = @user.nickname
