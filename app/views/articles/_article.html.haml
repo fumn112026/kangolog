@@ -6,10 +6,11 @@
       - @articles.each do |article|
         %li.article
           = link_to "", article_path(article.id), class: "article__link"
-          - if article.user.image?
-            = image_tag article.user.image.url, class: "article__user__icon clearfix"
-          - else
-            = image_tag asset_path("default.png", alt: "default_icon"), class: "article__user__icon clearfix"
+          - if controller.controller_name == "articles"
+            - if article.user.image?
+              = image_tag article.user.image.url, class: "article__user__icon clearfix"
+            - else
+              = image_tag asset_path("default.png", alt: "default_icon"), class: "article__user__icon clearfix"
           .article__inner__right
             = link_to article.title, article_path(article.id), class: "article__inner__right__title"
             %br

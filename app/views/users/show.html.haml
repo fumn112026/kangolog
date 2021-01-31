@@ -21,6 +21,4 @@
       - if alert
         .guest__alert
           = alert
-  .mypage__content
-    %ul
-      = render partial: 'articles/article', collection: @articles, as: "article"
+  = render partial: 'articles/article', locals: { '@articles': @articles, content_title: "投稿した記事" }
