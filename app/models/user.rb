@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   
-  validates :nickname, presence: true
+  validates :nickname, length: {maximum: 8}, presence: true
   validates :email, uniqueness: { case_sensitive: true }
   
   has_many :articles, dependent: :destroy

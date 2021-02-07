@@ -14,9 +14,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
     tag_list = params[:article][:tag_ids].split(',')
-    if @article.save
+    if @article.save && tag_list.count < 5
       @article.save_tags(tag_list)
-      flash[:succsess] = '投稿しました!'
       redirect_to root_path
     else
       render 'new'
