@@ -2,10 +2,7 @@
   .user__info
     .user__info__top
       .user__info__top__icon
-        - if @user.image?
-          = image_tag @user.image.url
-        - else
-          = image_tag asset_path("default.png")
+        = image_tag (@user.image.url || asset_path("default.png"))
       .user__info__top__nickname
         = @user.nickname
     .user__info__bottom
@@ -21,20 +18,4 @@
       - if alert
         .guest__alert
           = alert
-  .mypage__content
-    %ul
-      - @articles.each do |article|
-        %li.mypage__article
-          .article__inner__right
-            = link_to article.title, article_path(article.id), class: "article__inner__right__title"
-            %br
-            .article__inner__right__under
-              %span by
-              = link_to article.user.nickname, user_path(article.user), class: "article__user"
-              %span.post__time
-                %time(datatime="#{article.created_at}")
-                  = time_ago_in_words(article.created_at)
-              = article.liked_users.count
-              %span goods
-    .pagenation
-      = paginate(@articles)
+  = render partial: 'articles/article', locals: { '@articles': @articles, content_title: "投稿した記事" }
