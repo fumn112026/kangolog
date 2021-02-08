@@ -13,16 +13,16 @@ RSpec.describe Tag, type: :model do
   end
 
   it "タグ名がユニークであれば保存できること" do
-    tag1 = Tag.create(name: "test tag")
-    tag2 = Tag.new(name: "test tag2")
-    expect(tag2).to be_valid
+    tag = Tag.create(name: "test tag")
+    another_tag = Tag.new(name: "sample tag")
+    expect(another_tag).to be_valid
   end
 
   it "タグ名がユニークでなければ保存できないこと" do
-    tag1 = Tag.create(name: "test tag")
-    tag2 = Tag.new(name: "test tag")
-    tag2.valid?
-    expect(tag2.errors[:name]).to include("has already been taken")
+    tag = Tag.create(name: "test tag")
+    another_tag = Tag.new(name: tag.name)
+    another_tag.valid?
+    expect(another_tag.errors[:name]).to include("has already been taken")
   end
 
 end
