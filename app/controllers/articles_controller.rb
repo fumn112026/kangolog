@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
-    @like = Like.new
+    @like = current_user.likes.find_by(article_id: @article.id)
   end
 
   def edit
