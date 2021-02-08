@@ -13,11 +13,29 @@ describe User do
       user.valid?
       expect(user.errors[:nickname]).to include("can't be blank")
     end
+    
+    it "nicknameが8文字以内であれば登録できること" do
+      user = build(:user, nickname: "yamamoto")
+      expect(user).to be_valid
+    end
+
+    it "nicknameが9文字以上では登録できないこと" do
+      user = build(:user, nickname: "ayanokoji")
+      user.valid?
+      expect(user.errors[:nickname]).to include("is too long (maximum is 8 characters)")
+    end
 
     it "emailがない場合は登録できないこと" do
       user = build(:user, email: nil)
       user.valid?
       expect(user.errors[:email]).to include("can't be blank")
+    end
+
+    it "重複したemailが存在する場合は登録できないこと" do
+      user = create(:user)
+      another_user = build(:user, email: user.email)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("has already been taken")
     end
 
     it "passwordがない場合は登録できないこと" do
@@ -30,13 +48,6 @@ describe User do
       user = build(:user, password_confirmation: "")
       user.valid?
       expect(user.errors[:password_confirmation]).to include("doesn't match Password")
-    end
-
-    it "重複したemailが存在する場合は登録できないこと" do
-      user = create(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
     end
 
     it " passwordが6文字以上であれば登録できること " do
