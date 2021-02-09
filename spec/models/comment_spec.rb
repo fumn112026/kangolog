@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Comment do
   describe '#create' do
-
     it "textが存在すれば登録できること" do
       comment = build(:comment)
       expect(comment).to be_valid
@@ -13,6 +12,5 @@ describe Comment do
       comment.valid?
       expect(comment.errors[:text]).to include("can't be blank")
     end
-
   end
 end
