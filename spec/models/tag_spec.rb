@@ -25,4 +25,12 @@ RSpec.describe Tag, type: :model do
     expect(another_tag.errors[:name]).to include("has already been taken")
   end
 
+  describe "#destroy" do
+    it "タグを削除するとtag_relationも削除されること" do
+      article = create(:article)
+      tag = Tag.create(name: "test tag")
+      tag_rel = tag.tag_relations.create(article: article)
+      expect{ tag.destroy }.to change{ TagRelation.count }.by(-1)
+    end
+  end
 end
