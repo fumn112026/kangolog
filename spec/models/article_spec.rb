@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Article do
   describe '#create' do
-
     it "titleとcontentが存在すれば登録できること" do
       article = build(:article)
       expect(article).to be_valid
@@ -19,7 +18,28 @@ describe Article do
       article.valid?
       expect(article.errors[:content]).to include("can't be blank")
     end
+  end
 
+  describe '#destroy' do
+    it "記事を削除するとコメントも削除されること" do
+      user = create(:user)
+      article = create(:article)
+      com = article.comments.create(text: "素晴らしい記事ですね。", user: user)
+      expect{ article.destroy }.to change{ Comment.count }.by(-1)
+    end
+
+    it "記事を削除すると画像も削除されること" do
+      article = create(:article)
+      image = create(:image, article: article)
+      expect{ article.destroy }.to change{ Image.count }.by(-1)
+    end
+
+    it "記事を削除するとtag_relationも削除されること" do
+      article = create(:article)
+      tag = Tag.create(name: "test tag")
+      tag_rel = article.tag_relations.create(tag: tag)
+      expect{ article.destroy }.to change{ TagRelation.count }.by(-1)
+    end
   end
 
   # 検索文字列に一致するメッセージを検索する
