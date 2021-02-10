@@ -1,16 +1,17 @@
 // マイページ
 .mypage {
   background-color: #f3f3f2;
-  padding: 40px 80px;
   display: flex;
   justify-content: space-around;
+  padding: 0 100px;
   .user__info {
     text-align: center;
     background-color: #fff;
-    margin: 10px 10px 10px 0;
+    margin: 40px 0 0 40px;
     padding: 44px 24px 74px 24px;
     width: 400px;
     height: 100%;
+    max-height: 391px;
     img {
       margin-bottom: 16px;
       border-radius: 50%;
@@ -37,22 +38,14 @@
         color: #fff;
       }
     }
-  }
-  &__content {
-    width: 100%;
-    min-height: 580px;
-    .mypage__article {
-        background-color: #fff;
-        width: 65%;
-        height: 80px;
-        margin: 10px;
-        padding: 25px 25px 15px 25px;
+    .guest__alert {
+      color: #FF570D;
+      font-size: 14px;
+      margin-top: 10px;
     }
   }
-  .pagenation {
-    margin-left: 10px;
-  }
 }
+
 
 
 // 編集ページ

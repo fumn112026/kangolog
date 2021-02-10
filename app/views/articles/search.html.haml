@@ -1,12 +1,9 @@
-.content
-  %h2.search__head
-    = "#{@articles.count}件の検索結果"
-  .search__inner
-    .article__search
-      - if @articles.present?
-        = render @articles
-      - else
-        %p.article__search__noarticle
+- if @articles.present?
+  = render partial: 'article', locals: { '@articles': @articles, content_title: "#{@articles.count}件の検索結果" }
+- else
+  .search__content
+    .search__content__container
+      .search__content__container__textarea
+        %h2
           = "「#{params[:keyword]}」に一致する記事は見つかりませんでした。"
-  = paginate(@articles)
-
+        %p.serch__text他のキーワードでの検索をお試しください。

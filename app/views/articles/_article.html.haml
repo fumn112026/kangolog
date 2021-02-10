@@ -1,17 +1,32 @@
-%ul.article
-  %li
-    - if article.user.image?
-      = image_tag article.user.image.url, class: "article__user__icon clearfix"
-    - else
-      = image_tag asset_path("default.png", alt: "default_icon"), class: "article__user__icon clearfix"
-    .article__inner__right
-      = link_to article.title, article_path(article.id), class: "article__inner__right__title"
-      %br
-      .article__inner__right__under
-        %span by
-        = link_to article.user.nickname, user_path(article.user), class: "article__user"
-        %span.post__time
-          %time(datatime="#{article.created_at}")
-            = time_ago_in_words(article.created_at)
-        = article.liked_users.count
-        %span goods
+.content
+  %h2.index__head
+    = content_title
+  .index__inner
+    %ul
+      - @articles.each do |article|
+        %li.article
+          = link_to "", article_path(article.id), class: "article__link"
+          - if controller.controller_name == "articles"
+            - if article.user.image?
+              = image_tag article.user.image.url, class: "article__user__icon clearfix"
+            - else
+              = image_tag asset_path("default.png", alt: "default_icon"), class: "article__user__icon clearfix"
+          .article__inner__right
+            = link_to article.title, article_path(article.id), class: "article__inner__right__title"
+            %br
+            .article__inner__right__tag
+              - if article.tag.presence
+                = icon("fas", "tags", class: "fas fa-tags")
+                %ul.tag__list
+                  - article.tag.each do |tag|
+                    %li.tag__name
+                      = link_to tag.name, tag_article_path(tag.id), class: "tag__name__link"
+            .article__inner__right__under
+              %span by
+              = link_to article.user.nickname, user_path(article.user), class: "article__user"
+              %span.post__time
+                %time(datatime="#{article.created_at}")
+                  = time_ago_in_words(article.created_at)
+              = article.liked_users.count
+              %span goods
+  = paginate(@articles)

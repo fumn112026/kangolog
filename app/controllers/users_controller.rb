@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit]
-  before_action :move_to_root
+  before_action :set_user, only: [:show, :edit, :check_guest]
+  before_action :authenticate_user!, except: :show
+  before_action :check_guest, only: [:edit]
 
   def show
     @nickname = @user.nickname
@@ -25,8 +26,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def move_to_root
-    redirect_to root_path unless user_signed_in?
+  def check_guest
+    redirect_to user_path(@user), alert: 'ゲストユーザーは編集できません' if @user.email == "guest@example.com"
   end
 
 end

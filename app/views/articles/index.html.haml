@@ -1,5 +1,1 @@
-.content
-  %h2.index__head 新着記事
-  .index__inner
-    = render @articles
-  = paginate(@articles)
+= render partial: 'article', locals: { '@articles': @articles, content_title: "新着記事" }
