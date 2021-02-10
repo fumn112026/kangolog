@@ -1,0 +1,8 @@
+- if current_user
+  - if current_user.already_liked?(article)
+    = link_to article_like_path(article, like), method: :delete, class: "likes__icon", remote: true do
+      = icon("fas", "fa-heartbeat", class: "fa fa-heartbeat")
+  - else
+    = link_to article_likes_path(article), method: :post, class: "likes__icon", remote: true do
+      = icon("far", "fa-heart", class: "fa fa-heart")
+= article.likes.count
