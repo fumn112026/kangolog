@@ -2,9 +2,9 @@ class Article < ApplicationRecord
   validates :title, length: {maximum: 60}, presence: true 
   validates :content, presence: true
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :tag_relations, dependent: :destroy
   has_many :tag, through: :tag_relations
