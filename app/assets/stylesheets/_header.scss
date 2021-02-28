@@ -4,9 +4,10 @@
   display: flex;
   justify-content: space-between;
   color: #000;
-  &__logo{
-    font-size: 20px;
-    margin: auto 20px;
+  .logo{
+    width: 200px;
+    height: 200px;
+    margin-top: -40px;
   }
   &__search {
     font-size: 12px;
