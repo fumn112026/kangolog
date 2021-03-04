@@ -1,1 +1,10 @@
+.top__content
+  = image_tag "logo.svg", class: "top__content__logo"
+  .consept
+    .concept__text
+      .text__top CONCEPT
+      .text__bottom
+        %p kangologは「看護に関する知識を記録・共有するためのサービス」です。
+        %p 記事を読むこと、記事を書くことを通して、学びを深めていきましょう。
+        
 = render partial: 'article', locals: { '@articles': @articles, content_title: "新着記事" }
