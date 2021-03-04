@@ -1,3 +1,30 @@
+// index.html.haml
+.top__content {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  &__logo {
+    width: 50%;
+    height: 100%;
+  }
+  .concept {
+    text-align: center;
+    &__text {
+      font-weight: bold;
+      margin-top: 260px;
+      .text__top {
+        color: #e8340c;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 24px;
+      }
+      .text__bottom {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
 // _article.html.haml
 .content {
   padding: 40px 0;
@@ -92,7 +119,6 @@
   padding: 68px 0 215px;
   color: #0A0A0A;
   font-size: 13px;
-  border-top: 1px solid #eee;
   &__top {
     display: flex;
     justify-content: space-between;

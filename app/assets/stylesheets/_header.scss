@@ -1,12 +1,14 @@
 .header {
-  height: 100px;
+  height: 120px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   color: #000;
-  &__logo{
-    font-size: 20px;
-    margin: auto 20px;
+  background-color: #f3f3f2;
+  .logo{
+    width: 200px;
+    height: 200px;
+    margin-top: -40px;
   }
   &__search {
     font-size: 12px;
