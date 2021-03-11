@@ -20,7 +20,6 @@
     = simple_format @article.content
 
   .likes__block
-    %p.likes__text イイね
     #likes_buttons
       = render partial: 'likes/like', locals: { article: @article }
 
