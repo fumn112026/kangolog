@@ -137,7 +137,7 @@
     }
   }
   &__tag {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     .tag__name {
       background-color: #eee;
       display: inline-block;
@@ -151,20 +151,29 @@
     margin-bottom: 40px;
     color: #212121;
     font-size: 22px;
+    border-top: 1px solid gray;
+    padding-top: 30px;
   }
   &__content {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid gray;
     color: #212121;
     font-size: 13px;
     .article__image {
       margin-bottom: 10px;
     }
   }
-  &__info {
-    margin-bottom: 50px;
-  }
-  .likes__icon {
-    color: red;
+  .likes__block {
+    font-size: 18px;
+    margin-bottom: 40px;
+    #likes_buttons {
+      display: flex;
+      .likes__icon {
+        color: red;
+        margin-right: 5px;
+      }
+    }
   }
   &__comment__wrapper {
     color: #333;
