@@ -33,15 +33,15 @@
               %span @
               = link_to comment.user.nickname, user_path(comment.user_id)
             %p.article__show__comment__wrapper__table__updatedat
-              =comment.updated_at.strftime("%Y-%m-%d")
+              = comment.updated_at.strftime("%Y-%m-%d")
           %p.article__show__comment__wrapper__table__text
             = comment.text
           - if user_signed_in? && current_user.id == comment.user.id 
             .article__show__comment__wrapper__table__menu
               = link_to 'edit', edit_article_comment_path(@article, comment)
               = link_to 'delete', article_comment_path(@article, comment), method: :delete
-          - else @comments
-            %p.nocomment__content この記事にコメントはありません。
+    - else
+      %p.nocomment__content この記事にコメントはありません。
     - if current_user
       %p.article__show__comment__wrapper__formhead コメントを投稿
       .article__show__comment__wrapper__form.form.clearfix
