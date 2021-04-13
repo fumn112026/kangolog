@@ -116,7 +116,7 @@
 // show.html.haml
 .article__show {
   margin: 40px 50px;
-  padding: 68px 0 130px;
+  padding-bottom: 130px;
   color: #0A0A0A;
   font-size: 13px;
   &__top {
@@ -153,6 +153,17 @@
     font-size: 22px;
     border-top: 1px solid gray;
     padding-top: 30px;
+    span {
+      margin-left: 50px;
+    }
+    span, .article__show__user-link {
+      color: #666;
+      font-size: 18px;
+      padding: 5px;
+    }
+    .article__show__user-link:hover {
+      background-color: #eee;
+    }
   }
   &__content {
     margin-bottom: 30px;

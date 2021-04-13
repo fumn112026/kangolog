@@ -13,6 +13,8 @@
           = link_to tag.name, tag_article_path(tag.id)
   .article__show__title
     = @article.title
+    %span by
+    = link_to(@article.user.nickname, user_path(@article.user), class: "article__show__user-link")
   .article__show__content
     - if @article.images[0].present?
       .article__image
